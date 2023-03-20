@@ -1,0 +1,3 @@
+ISSUES = dict()
+CUSTOMER_ISSUES = dict()
+SERVICE_AGENTS = dict()

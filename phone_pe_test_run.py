@@ -1,0 +1,18 @@
+from issue_resolution_service import IssueResolution
+from issue_resolution_adts import *
+ir = IssueResolution()
+ir.create_issue("T1", "Payment Related", "Payment Failed", "My payment failed but money is debited", "testUser1@test.com")
+ir.create_issue("T2", "Mutual Fund Related", "Purchase Failed", "Unable to purchase Mutual Fund", "testUser2@test.com")
+ir.create_issue("T3", "Payment Related", "Payment Failed", "My payment failed but money is debited", "testUser2@test.com")
+ir.add_agent("agent1@test.com", "Agent 1", ["Payment Related", "Gold Related"])
+ir.add_agent("agent2@test.com", "Agent 2", ["Payment Related"])
+ir.assign_issue('I1')
+ir.assign_issue('I2')
+ir.assign_issue('I3')
+ir.get_issues({'email': 'testUser1@test.com'})
+ir.get_issues({'email': 'testUser2@test.com'})
+ir.get_issues({'type': 'Payment Related'})
+ir.get_issues({'agent_id': 'A1', 'type': 'Payment Related'})
+ir.update_issue('I1', 'Assigned', 'Pending')
+ir.resolve_issue('I1', 'Payment reversed on NPCI end')
+ir.view_agents_work_history()
